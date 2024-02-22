@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-sudo apt-get install tor python3-pip -y 
+sudo apt-get install tor python3-pip cython3 -y 
 sudo pip3 install -r requirements.txt 
 mkdir build && cd build
 
