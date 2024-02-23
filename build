@@ -44,5 +44,7 @@ function main() {
     ProgressCheck "Install to /usr/bin/ and make it executable"
 }
 
-main
+echo "testing"
+
+# main
 exit 0
