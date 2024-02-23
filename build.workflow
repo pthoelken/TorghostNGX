@@ -1,13 +1,14 @@
-#!/bin/bash
+#!/bin/bash -e
 
 strBuildDirectory=target
 objPythonVersion=$(python3 -V | cut -d' ' -f2 | cut -d'.' -f1,2)
 
 if [ -d $strBuildDirectory ]; then
     rm -rf $strBuildDirectory
-    mkdir $strBuildDirectory
-    cd $strBuildDirectory
 fi
+
+mkdir $strBuildDirectory
+cd $strBuildDirectory
 
 function main() {
     sudo apt update
