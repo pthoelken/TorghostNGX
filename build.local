@@ -9,10 +9,10 @@ if [ -d $strBuildDirectory ]; then
     cd $strBuildDirectory
 fi
 
-# if [ "$EUID" -ne 0 ]; then 
-#     echo "[ERROR] You have to run this script as root user!"
-#     exit 1
-# fi
+if [ "$EUID" -ne 0 ]; then 
+    echo "[ERROR] You have to run this script as root user!"
+    exit 1
+fi
 
 function ProgressCheck() {
     if [ $? -eq 0 ]; then
@@ -44,7 +44,5 @@ function main() {
     ProgressCheck "Install to /usr/bin/ and make it executable"
 }
 
-echo "testing"
-
-# main
+main
 exit 0
