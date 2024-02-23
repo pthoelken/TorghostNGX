@@ -24,19 +24,19 @@ function ProgressCheck() {
 }
 
 function main() {
-    apt update
+    apt update > /dev/null 2>&1
     ProgressCheck "Repository Update"
 
-    apt install tor python3-pip cython3 -y
+    apt install tor python3-pip cython3 -y > /dev/null 2>&1
     ProgressCheck "Install System requirements"
 
-    pip3 install -r requirements.txt 
+    pip3 install -r requirements.txt > /dev/null 2>&1
     ProgressCheck "Install Python requirements"
 
-    cython3 -3 ../torghost.py --embed -o torghost.c --verbose
+    cython3 -3 ../torghost.py --embed -o torghost.c --verbose > /dev/null 2>&1
     ProgressCheck "Generate C Code"
 
-    gcc -Os -I /usr/include/python${objPythonVersion} -o torghost torghost.c -lpython${objPythonVersion} -lpthread -lm -lutil -ldl
+    gcc -Os -I /usr/include/python${objPythonVersion} -o torghost torghost.c -lpython${objPythonVersion} -lpthread -lm -lutil -ldl > /dev/null 2>&1
     ProgressCheck "Compiled to static binary"
 
     sudo cp -r torghost /usr/bin/
