@@ -1,6 +1,6 @@
 #!/bin/bash
 
-strBuildDirectory=build
+strBuildDirectory=target
 objPythonVersion=$(python3 -V | cut -d' ' -f2 | cut -d'.' -f1,2)
 
 if [ -d $strBuildDirectory ]; then
