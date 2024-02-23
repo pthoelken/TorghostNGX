@@ -8,7 +8,6 @@ if [ -d $strBuildDirectory ]; then
 fi
 
 mkdir $strBuildDirectory
-cd $strBuildDirectory
 
 if [ "$EUID" -ne 0 ]; then 
     echo "[ERROR] You have to run this script as root user!"
@@ -33,6 +32,9 @@ function main() {
 
     pip3 install -r requirements.txt > /dev/null 2>&1
     ProgressCheck "Install Python requirements"
+
+    cd $strBuildDirectory
+    ProgressCheck "Switch to build directory"
 
     cython3 -3 ../torghost.py --embed -o torghost.c --verbose > /dev/null 2>&1
     ProgressCheck "Generate C Code"
