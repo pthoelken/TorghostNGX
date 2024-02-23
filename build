@@ -10,15 +10,15 @@ if [ -d $strBuildDirectory ]; then
 fi
 
 if [ "$EUID" -ne 0 ]; then 
-    echo "[ERROR] Operation $1 was not successfull!"
+    echo "[ERROR] You have to run this script as root user!"
     exit 1
 fi
 
 function ProgressCheck() {
     if [ $? -eq 0 ]; then
-        echo -e "[SUCCESS] Operation | $1 | was successfull!"
+        echo -e "[SUCCESS] Operation | $1 | was successful!"
     else
-        echo -e "[ERROR] Operation | $1 | was not successfull!"
+        echo -e "[ERROR] Operation | $1 | was not successful!"
         exit 1
     fi
 }
